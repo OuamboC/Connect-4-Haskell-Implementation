@@ -137,7 +137,8 @@ gameLoop board currentPlayer player1Name player2Name = do
   -- Display the current board
   showBoard board
   -- Prompt the current player to enter their move
-  putStrLn $ currentPlayerName ++ ", enter your move (row col):"
+  putStr $ currentPlayerName ++ ", enter your move (row col):"
+  hFlush stdout -- Flush the output buffer to ensure the prompt is displayed immediately
   
   -- Read the player's input
   input <- getLine
