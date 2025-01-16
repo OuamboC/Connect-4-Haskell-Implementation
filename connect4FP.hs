@@ -167,7 +167,7 @@ gameLoop board currentPlayer player1Name player2Name = do
 -- Main function to start the game
 -- Function: main
 -- Action:
---   1. Initializes the game board with 5 rows and 5 columns.
+--   1. Initialises the game board with 5 rows and 5 columns.
 --   2. Starts the game loop with the initial board and the first player 'O'.
 
 main :: IO ()
