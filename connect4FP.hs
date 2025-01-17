@@ -52,12 +52,7 @@ showBoard board = mapM_ putStrLn formattedBoard
 -- Function : isValidMove  ( must return a boolean)
 -- Parameters : board ( the current game board), row (row index of the move), col ( col index of the move)
 -- Returns : True if the move is within bounds and the cell is empty , otherwise False
---isValidMove :: Board -> Int -> Int -> Bool
---isValidMove board row col = 
-  --(row >= 0 && row < length board) && 
-  --(col >= 0 && col < length (head board)) && 
-  --(board !! row !! col == emptyCell)
-  isValidMove :: Board -> Int -> Int -> Bool
+isValidMove :: Board -> Int -> Int -> Bool
 isValidMove board row col
   | row < 0 = False
   | row >= length board = False
