@@ -3,10 +3,10 @@
 -- isAlpha is used to check if characters in a string are alphabetic
 import System.IO (hFlush, stdout)
 import Data.Char (isAlpha)
-import Data.List (intercalate) -- Import to use intercalate
+import Data.List (intercalate) 
 
 
---Step 1 : Define the board 
+-- Step 1 : Define the board 
 -- Define the Board type as a 2D list of characters
 type Board = [[Char]]
 
@@ -16,7 +16,7 @@ emptyCell  = ' '
 
 -- Initialise the board with empty cells
 -- Function: initBoard
--- Parameters : rows ( number sof rows in the board ) , cols ( number of columns in the board)
+-- Parameters : rows ( number of rows in the board ) , cols ( number of columns in the board)
 initBoard :: Int -> Int -> Board
 initBoard rows cols = replicate rows (replicate cols emptyCell)
 
@@ -119,7 +119,7 @@ getPlayerName playerNumber = do
 -- Function: gameLoop
 -- Parameters: 
 --   board (the current game board)
---   currentPlayer (the current player's token character, e.g., 'O' or 'C')
+--   currentPlayer (the current player's token character, such as 'O' or 'C')
 -- Action:
 --   1. Displays the current board.
 --   2. Prompts the current player to enter their move (row and column).
