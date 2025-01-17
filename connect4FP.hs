@@ -3,7 +3,6 @@
 -- isAlpha is used to check if characters in a string are alphabetic
 import System.IO (hFlush, stdout)
 import Data.Char (isAlpha)
-import Data.List (intercalate) 
 
 
 -- Step 1 : Define the board 
