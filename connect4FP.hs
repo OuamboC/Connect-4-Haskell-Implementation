@@ -116,10 +116,10 @@ getPlayerName playerNumber = do
 
 
 
--- Step 9 : Game Logic
+-- Step 9 : Game Loop
 
--- Main game logic
--- Function: gameLoogic
+-- Main game loop
+-- Function: gameLoop
 -- Parameters: 
 --   board (the current game board)
 --   currentPlayer (the current player's token character, such as 'O' or 'C')
@@ -130,11 +130,11 @@ getPlayerName playerNumber = do
 --   4. Checks if the move is valid:
 --      - If valid, places the token on the board and checks for a winner.
 --      - If a winner is found, displays the board and announces the winner.
---      - If no winner, recursively calls gameLogic with the updated board and the next player.
+--      - If no winner, recursively calls gameLoop with the updated board and the next player.
 --      - If invalid, prompts the player to try again and recursively calls gameLoop.
 
-gameLogic :: Board -> Char -> String -> String -> IO ()
-gameLogic board currentPlayer player1Name player2Name = do
+gameLoop :: Board -> Char -> String -> String -> IO ()
+gameLoop board currentPlayer player1Name player2Name = do
   -- Determine the current player's name based on the token
   let currentPlayerName = if currentPlayer == 'O' then player1Name else player2Name
   -- Display the current board
@@ -159,20 +159,20 @@ gameLogic board currentPlayer player1Name player2Name = do
           showBoard newBoard
           putStrLn $ currentPlayerName ++ " wins!"
         else
-          -- Recursively call gameLogic with the updated board and the next player
-          gameLogic newBoard (if currentPlayer == 'O' then 'C' else 'O') player1Name player2Name
+          -- Recursively call gameLoop with the updated board and the next player
+          gameLoop newBoard (if currentPlayer == 'O' then 'C' else 'O') player1Name player2Name
     else do
       -- If the move is invalid, prompt the player to try again
       putStrLn "Invalid move. Try again."
-      -- Recursively call gameLogic with the same board and current player
-      gameLogic board currentPlayer player1Name player2Name
+      -- Recursively call gameLoop with the same board and current player
+      gameLoop board currentPlayer player1Name player2Name
 
 -- Step 10 : Start the game 
 -- Main function to start the game
 -- Function: main
 -- Action:
 --   1. Initialises the game board with 5 rows and 5 columns.
---   2. Starts the game logic with the initial board and the first player 'O'.
+--   2. Starts the game loop with the initial board and the first player 'O'.
 
 main :: IO ()
 main = do
@@ -185,8 +185,8 @@ main = do
   -- Get the names of the players
   player1Name <- getPlayerName "Player 1"
   player2Name <- getPlayerName "Player 2"
-  -- Start the game logic with the initial board and the first player 'O'
-  gameLogic board 'O' player1Name player2Name
+  -- Start the game loop with the initial board and the first player 'O'
+  gameLoop board 'O' player1Name player2Name
 
 
   
